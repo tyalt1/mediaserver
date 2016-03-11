@@ -1,5 +1,3 @@
-- name: start docker daemon
-  service: name=docker state=restarted
 - name: make dockerui container
   docker:
     name: dockerui

@@ -16,7 +16,7 @@ with_items:
 
 name: clone mergerfs repo
 git:
-  repo: https://github.com/trapexit/mergerfs.git
+  repo: "git@github.com:trapexit/mergerfs.git"
   clone: yes
   dst: /tmp/mergerfs
 

@@ -4,9 +4,7 @@
   vars:
     storage: /mnt/storage
   roles:
-    - role: docker_install
     - role: mergerfs
       mount_point: {{ storage }}
-    #snapraid
-    - role: docker_run
+    - role: docker
       mount_point: {{ storage }}
