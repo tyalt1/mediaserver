@@ -1,5 +1,5 @@
-- name: check if mergerfs is installed
-  command: which mergerfs
+- name: check if snapraid is installed
+  command: which snapraid
   ignore_errors: True
   register: result
   changed_when: false

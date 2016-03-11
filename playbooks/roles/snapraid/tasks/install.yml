@@ -1,0 +1,21 @@
+- name: download dependancies
+  apt:
+    pkg: {{ item }}
+    sudo: true
+    state: present
+    update_cache: yes
+  with_items:
+    - git
+    - gcc
+    - make
+
+- name: clone snapraid repo
+  git:
+    repo: "git@github.com:amadvance/snapraid.git"
+    clone: yes
+    dst: /tmp/snapraid
+
+#TODO install snapraid
+
+- name: remove snapraid repo
+  command: "rm -rf /tmp/snapraid*"

@@ -6,5 +6,7 @@
   roles:
     - role: mergerfs
       mount_point: {{ storage }}
+    - role: snapraid
+      mount_point: {{ storage }}
     - role: docker
       mount_point: {{ storage }}
