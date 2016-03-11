@@ -7,3 +7,5 @@
 
 - include: install.yml
   when: result | failed
+
+#TODO mount the drives to the single mount point
