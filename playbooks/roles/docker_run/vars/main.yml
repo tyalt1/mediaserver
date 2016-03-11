@@ -1,0 +1,6 @@
+volume: "{{ mount_point }}/vol"
+movie: "{{ mount_point }}/media/movie"
+tv: "{{ mount_point }}/media/tv"
+download: "{{ mount_point }}/download"
+code: "{{ mount_point }}/code"
+cloud: "{{ mount_point }}/media"

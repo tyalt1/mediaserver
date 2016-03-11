@@ -1,0 +1,13 @@
+- name: download docker install script
+  get_url:
+    dest: "{{ docker_script_path }}"
+    force: yes
+    url: "https://get.docker.com"
+
+- name: run script
+  command: "/bin/sh {{ docker_script_path }}"
+
+- name: remove docker install script
+  file:
+    path: "{{ docker_script_path }}"
+    state: absent

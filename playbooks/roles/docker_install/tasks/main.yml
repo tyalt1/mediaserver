@@ -1,0 +1,19 @@
+- name: check if docker is installed
+  command: which docker
+  ignore_errors: True
+  register: result
+  changed_when: false
+  always_run: yes
+
+- include: install.yml
+  when: result | failed
+
+- name: install docker-py
+  pip:
+    name: docker-py
+    state: present
+
+- name: start docker
+  service:
+    name: docker
+    state: started

@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  sudo: true
+  vars:
+    storage: /mnt/storage
+  roles:
+    - role: docker_install
+    - role: mergerfs
+      mount_point: {{ storage }}
+    #snapraid
+    - role: docker_run
+      mount_point: {{ storage }}

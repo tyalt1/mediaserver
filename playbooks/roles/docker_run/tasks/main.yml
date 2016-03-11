@@ -1,0 +1,93 @@
+- name: start docker daemon
+  service: name=docker state=restarted
+- name: make dockerui container
+  docker:
+    name: dockerui
+    image: dockerui/dockerui
+    state: started
+    privileged: true
+    restart_policy: always
+    expose:
+      - "9000:9000"
+    volumes_from:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+- name: make plex container
+  docker:
+    name: plex
+    image: linuxserver/plex
+    state: present
+    expose:
+      - "32400:32400"
+      - "32400:32400/udp"
+      - "32469:32469"
+      - "32469:32469/udp"
+      - "5353:5353/udp"
+      - "1900:1900/udp"
+    volumes_from:
+      - "{{ volume }}/plex/config:/config"
+      - "{{ volume }}/plex/transcode:/transcode"
+      - "{{ movie }}:/data/movies"
+      - "{{ tv }}:/data/tvshows"
+- name: make transmission container
+  docker:
+    name: transmission
+    image: linuxserver/transmission
+    state: present
+    expose:
+      - "9091:9091"
+      - "51413:51413"
+    volumes_from:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "{{ volume }}/transmission/config:/config"
+      - "{{ volume }}/transmission/watch:/watch"
+      - "{{ download }}:/downloads"
+- name: make sonarr container
+  docker:
+    name: sonarr
+    image: linuxserver/sonarr
+    state: present
+    expose:
+      - "8989:8989"
+    volumes_from:
+      - "/dev/rtc:/dev/rtc:ro"
+      - "{{ volume }}/sonarr/config:/config"
+      - "{{ tv }}:/tv"
+      - "{{ download}}:/downloads"
+- name: make couchpotato container
+  docker:
+    name: couchpotato
+    image: linuxserver/couchpotato
+    state: present
+    expose:
+      - "5050:5050"
+    volumes_from:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "{{ volume }}/couchpotato/config:/config"
+      - "{{ movie }}:/movies"
+      - "{{ download}}:/downloads"
+- name: make gitlab container
+  docker:
+    name: gitlab
+    image: gitlab/gitlab-ce
+    hostname: gitlab.tyalt1.com
+    state: present
+    expose:
+      - "22:22" #SSH
+      - "80:80" #HTTP
+      - "443:443" #HTTPS
+    volumes_from:
+      - "{{ volume }}/gitlab/config":/etc/gitlab"
+      - "{{ volume }}/gitlab/logs:/var/log/gitlab"
+      - "{{ code }}:/var/opt/gitlab"
+#TODO make teamspeak server
+- name: make minecraft-vanilla container
+  docker:
+    name: minecraft-vanilla
+    image: kitematic
+    state: present
+    expose:
+      - "25565:25565"
+    volumes_from:
+      - "{{ volume }}/minecraft-vanilla/:/data"
+#TODO make minecraft-tekkit
+#TODO make minecraft-hexxit

@@ -1,0 +1,9 @@
+- name: check if mergerfs is installed
+  command: which docker
+  ignore_errors: True
+  register: result
+  changed_when: false
+  always_run: yes
+
+- include: install.yml
+  when: result | failed
