@@ -9,7 +9,7 @@ and run the playbook.
 
 ```
 sudo pip install ansible
-ansible-playbook playbooks/server_setup.yml
+ansible-playbook server_setup.yml
 ```
 
 ## Ansible Roles
