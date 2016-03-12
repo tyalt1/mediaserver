@@ -20,11 +20,11 @@
     clone: yes
     dst: /tmp/mergerfs
 
+- name: make mergerfs
+  command: "make --directory=/tmp/mergerfs deb"
+
 - name: install mergerfs
-  command: {{ item }}
-  with_items:
-    - "make --directory=/tmp/mergerfs deb"
-    - "dpkg -i /tmp/mergerfs*.deb"
+  command: "dpkg -i /tmp/mergerfs*.deb"
 
 - name: remove mergerfs repo
   command: "rm -rf /tmp/mergerfs*"

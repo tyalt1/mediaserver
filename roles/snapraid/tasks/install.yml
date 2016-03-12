@@ -5,17 +5,37 @@
     state: present
     update_cache: yes
   with_items:
-    - git
+    - wget
     - gcc
     - make
+    - checkinstall
 
-- name: clone snapraid repo
-  git:
-    repo: "git@github.com:amadvance/snapraid.git"
-    clone: yes
-    dst: /tmp/snapraid
+- name: download snapraid release
+  get_url:
+    dest: /tmp/snapraid.tar.gz
+    force: yes
+    url: "https://github.com/amadvance/snapraid/releases/download/v10.0/snapraid-10.0.tar.gz"
 
-#TODO install snapraid
+- name: untar snapraid release
+  command: "tar xzf snapraid.tar.gz"
+  args:
+    chdir: /tmp
+    creates: /tmp/snapraid
 
-- name: remove snapraid repo
+- name: configure snapraid
+  command: "./configure"
+  args:
+    chdir: /tmp/snapraid
+
+- name: make snapraid
+  command: "make && make check"
+  args:
+    chdir: "/tmp/snapraid"
+
+- name: install snapraid
+  command: "checkinstall -Dy --install=no --nodoc && dpkg -i *.deb"
+  args:
+    chdir: "/tmp/snapraid"
+
+- name: remove snapraid files
   command: "rm -rf /tmp/snapraid*"
