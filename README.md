@@ -1,4 +1,5 @@
 # mediaserver
+[![Build Status](https://travis-ci.org/tyalt1/mediaserver.svg?branch=master)](https://travis-ci.org/tyalt1/mediaserver)
 
 Ansible playbook and more for setup of mediaserver.
 
