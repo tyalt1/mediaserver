@@ -1,0 +1,13 @@
+---
+language: python
+python: "2.7"
+sudo: required
+
+before_install:
+  - apt-get update -qq
+
+install:
+  - pip install ansible #Install Ansible
+
+script:
+  - "ansible-playbook -i hosts server_setup.yml --syntax-check"
