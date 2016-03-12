@@ -13,7 +13,8 @@
     name: docker-py
     state: present
 
-- notify: docker start
+- name: start docker daemon
+  service: name=docker state=started
 
 - name: make docker containers
   include: containers.yml

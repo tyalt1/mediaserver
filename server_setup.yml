@@ -1,12 +1,12 @@
 ---
 - hosts: localhost
-  sudo: true
+  become: true
   vars:
     storage: /mnt/storage
   roles:
     - role: mergerfs
-      mount_point: {{ storage }}
+      mount_point: "{{ storage }}"
     - role: snapraid
-      mount_point: {{ storage }}
+      mount_point: "{{ storage }}"
     - role: docker
-      mount_point: {{ storage }}
+      mount_point: "{{ storage }}"
