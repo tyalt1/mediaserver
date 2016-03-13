@@ -1,4 +1,4 @@
-- name: download dependancies
+- name: download dependencies
   apt:
     pkg: {{ item }}
     sudo: true

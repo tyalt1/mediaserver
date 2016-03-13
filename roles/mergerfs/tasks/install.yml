@@ -1,7 +1,6 @@
-- name: download dependancies
+- name: download dependencies
   apt:
-    pkg: {{ item }}
-    sudo: true
+    pkg: "{{ item }}"
     state: present
     update_cache: yes
   with_items:
@@ -15,16 +14,13 @@
     - libattr1-dev
 
 - name: clone mergerfs repo
-  git:
-    repo: "git@github.com:trapexit/mergerfs.git"
-    clone: yes
-    dst: /tmp/mergerfs
+  command: "git clone https://github.com/trapexit/mergerfs.git /tmp/mergerfs"
 
 - name: make mergerfs
   command: "make --directory=/tmp/mergerfs deb"
 
 - name: install mergerfs
-  command: "dpkg -i /tmp/mergerfs*.deb"
+  shell: "dpkg -i /tmp/mergerfs*.deb"
 
 - name: remove mergerfs repo
-  command: "rm -rf /tmp/mergerfs*"
+  shell: "rm -rf /tmp/mergerfs*"
