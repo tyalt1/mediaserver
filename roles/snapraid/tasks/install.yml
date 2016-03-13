@@ -1,11 +1,9 @@
 - name: download dependencies
   apt:
-    pkg: {{ item }}
-    sudo: true
+    pkg: "{{ item }}"
     state: present
     update_cache: yes
   with_items:
-    - wget
     - gcc
     - make
     - checkinstall
@@ -14,28 +12,25 @@
   get_url:
     dest: /tmp/snapraid.tar.gz
     force: yes
-    url: "https://github.com/amadvance/snapraid/releases/download/v10.0/snapraid-10.0.tar.gz"
+    url: "https://github.com/amadvance/snapraid/releases/download/v{{ snapraid_version }}/snapraid-{{ snapraid_version }}.tar.gz"
 
 - name: untar snapraid release
-  command: "tar xzf snapraid.tar.gz"
-  args:
-    chdir: /tmp
-    creates: /tmp/snapraid
+  unarchive:
+    src: /tmp/snapraid.tar.gz
+    dest: /tmp
 
 - name: configure snapraid
   command: "./configure"
   args:
-    chdir: /tmp/snapraid
+    chdir: "/tmp/snapraid-{{ snapraid_version }}"
 
 - name: make snapraid
-  command: "make && make check"
-  args:
-    chdir: "/tmp/snapraid"
+  command: "make --directory=/tmp/snapraid-{{ snapraid_version }} check"
 
 - name: install snapraid
-  command: "checkinstall -Dy --install=no --nodoc && dpkg -i *.deb"
+  shell: "checkinstall -Dy --install=no --nodoc && dpkg -i *.deb"
   args:
-    chdir: "/tmp/snapraid"
+    chdir: "/tmp/snapraid-{{ snapraid_version }}"
 
 - name: remove snapraid files
-  command: "rm -rf /tmp/snapraid*"
+  shell: "rm -rf /tmp/snapraid*"
