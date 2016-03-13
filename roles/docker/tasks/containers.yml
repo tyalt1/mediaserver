@@ -79,7 +79,7 @@
       - "80:80" #HTTP
       - "443:443" #HTTPS
     volumes_from:
-      - "{{ volume }}/gitlab/config":/etc/gitlab"
+      - "{{ volume }}/gitlab/config:/etc/gitlab"
       - "{{ volume }}/gitlab/logs:/var/log/gitlab"
       - "{{ code }}:/var/opt/gitlab"
 
@@ -94,5 +94,6 @@
       - "25565:25565"
     volumes_from:
       - "{{ volume }}/minecraft-vanilla/:/data"
+
 #TODO make minecraft-tekkit
 #TODO make minecraft-hexxit

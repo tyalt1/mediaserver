@@ -11,3 +11,4 @@ install:
 
 script:
   - "ansible-playbook -i hosts server_setup.yml --syntax-check"
+  - "ansible-playbook -i hosts server_setup.yml"
