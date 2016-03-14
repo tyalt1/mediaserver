@@ -5,7 +5,8 @@
   changed_when: false
   always_run: yes
 
-- include: install.yml
+- name: run docker install script
+  script: docker.sh
   when: result | failed
 
 - name: install docker-py
