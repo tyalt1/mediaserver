@@ -1,2 +1,1 @@
-docker_script_path: /tmp/docker
 mount_point: /massstorage
