@@ -19,7 +19,7 @@
   when: result | failed
 
 - name: run mergerfs install script
-  script: getmergerfs.sh
+  script: get_mergerfs.sh
   when: result | failed
 
 #TODO mount the drives to the single mount point
