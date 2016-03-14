@@ -1,11 +1,11 @@
 # mediaserver
 [![Build Status](https://travis-ci.org/tyalt1/mediaserver.svg?branch=master)](https://travis-ci.org/tyalt1/mediaserver)
 
-Ansible playbook and more for setup of mediaserver.
+Ansible playbook for setup of mediaserver.
 
 ## Setup Server
 
-Install [Ansible](https://www.ansible.com/)
+Install [Ansible](https://docs.ansible.com/ansible/)
 and run the playbook.
 
 ```
@@ -13,14 +13,16 @@ sudo pip install ansible
 ansible-playbook -i hosts server_setup.yml
 ```
 
+Where `hosts` is an [Ansible Inventory file](http://docs.ansible.com/ansible/intro_inventory.html).
+
 ## Ansible Roles
 
 All the roles install the program if it is not already installed.
 
 role     | description |
 ---------|-----------------------
-[mergerfs](https://github.com/trapexit/mergerfs) | JBOD union filesystem
-[snapraid](https://github.com/amadvance/snapraid) | Backup for disk arrays.
+[mergerfs](https://github.com/trapexit/mergerfs) | JBOD (Just a Bunch Of Drives) union filesystem
+[snapraid](https://github.com/amadvance/snapraid) | Backup for disk arrays using parity blocks.
 docker   | Container-based application platform.
 
 The mergerfs role mounts all the drives at a specific mount point.
@@ -31,7 +33,7 @@ The docker role starts up the services inside containers.
 
 ## Docker Containers
 
-All services run are run inside docker containers.
+All services are run inside docker containers.
 The containers are created in `roles/docker/tasks/containers.yml`.
 
 1. [dockerui](https://hub.docker.com/r/dockerui/dockerui/)
@@ -46,5 +48,5 @@ TV show management.
 Movie management.
 1. [gitlab](https://hub.docker.com/r/gitlab/gitlab-ce)
 Git repository hosting server.
-1. [minecraft](https://hub.docker.com/r/kitematic/minecraft/)
+1. [minecraft-vanilla](https://hub.docker.com/r/kitematic/minecraft/)
 Minecraft game server.
