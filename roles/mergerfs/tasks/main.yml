@@ -5,7 +5,21 @@
   changed_when: false
   always_run: yes
 
-- include: install.yml
+- name: apt-get for mergerfs script
+  apt: pkg={{ item }} state=present
+  with_items:
+    - git
+    - g++
+    - pkg-config
+    - git-buildpackage
+    - pandoc
+    - debhelper
+    - libfuse-dev
+    - libattr1-dev
+  when: result | failed
+
+- name: run mergerfs install script
+  script: getmergerfs.sh
   when: result | failed
 
 #TODO mount the drives to the single mount point
