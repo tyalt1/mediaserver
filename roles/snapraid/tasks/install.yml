@@ -1,8 +1,5 @@
 - name: download dependencies
-  apt:
-    pkg: "{{ item }}"
-    state: present
-    update_cache: yes
+  apt: name={{ item }} state=present update_cache=yes
   with_items:
     - gcc
     - make

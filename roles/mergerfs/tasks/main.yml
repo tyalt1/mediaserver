@@ -6,7 +6,7 @@
   always_run: yes
 
 - name: apt-get for mergerfs script
-  apt: pkg={{ item }} state=present
+  apt: name={{ item }} state=present update_cache=yes
   with_items:
     - git
     - g++
