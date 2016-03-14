@@ -7,7 +7,7 @@
     restart_policy: always
     expose:
       - "9000:9000"
-    volumes_from:
+    volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
 - name: make plex container
@@ -22,7 +22,7 @@
       - "32469:32469/udp"
       - "5353:5353/udp"
       - "1900:1900/udp"
-    volumes_from:
+    volumes:
       - "{{ volume }}/plex/config:/config"
       - "{{ volume }}/plex/transcode:/transcode"
       - "{{ movie }}:/data/movies"
@@ -36,7 +36,7 @@
     expose:
       - "9091:9091"
       - "51413:51413"
-    volumes_from:
+    volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "{{ volume }}/transmission/config:/config"
       - "{{ volume }}/transmission/watch:/watch"
@@ -49,7 +49,7 @@
     state: present
     expose:
       - "8989:8989"
-    volumes_from:
+    volumes:
       - "/dev/rtc:/dev/rtc:ro"
       - "{{ volume }}/sonarr/config:/config"
       - "{{ tv }}:/tv"
@@ -62,7 +62,7 @@
     state: present
     expose:
       - "5050:5050"
-    volumes_from:
+    volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "{{ volume }}/couchpotato/config:/config"
       - "{{ movie }}:/movies"
@@ -78,7 +78,7 @@
       - "22:22" #SSH
       - "80:80" #HTTP
       - "443:443" #HTTPS
-    volumes_from:
+    volumes:
       - "{{ volume }}/gitlab/config:/etc/gitlab"
       - "{{ volume }}/gitlab/logs:/var/log/gitlab"
       - "{{ code }}:/var/opt/gitlab"
@@ -88,11 +88,11 @@
 - name: make minecraft-vanilla container
   docker:
     name: minecraft-vanilla
-    image: kitematic
+    image: kitematic/minecraft
     state: present
     expose:
       - "25565:25565"
-    volumes_from:
+    volumes:
       - "{{ volume }}/minecraft-vanilla/:/data"
 
 #TODO make minecraft-tekkit
