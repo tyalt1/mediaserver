@@ -1,0 +1,3 @@
+# List of Hard Drives
+# { name: /mnt/diskx, src: /dev/disk/by-id/... }
+disks: []

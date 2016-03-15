@@ -22,4 +22,6 @@
   script: get_mergerfs.sh
   when: result | failed
 
-#TODO mount the drives to the single mount point
+- name: mount drives
+  include: mount.yml #TODO test this
+  when: disks.0 is defined
