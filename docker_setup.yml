@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  vars:
+    storage: /tmp/docker
+  roles:
+    - role: docker
+      mount_point: "{{ storage }}"
