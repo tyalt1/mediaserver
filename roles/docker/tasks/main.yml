@@ -15,5 +15,17 @@
 - name: start docker daemon
   service: name=docker state=started
 
+- name: add volume directories
+  file:
+    dest: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ volume }}"
+    - "{{ movie }}"
+    - "{{ tv }}"
+    - "{{ download }}"
+    - "{{ code }}"
+    - "{{ cloud }}"
+
 - name: make docker containers
   include: containers.yml
