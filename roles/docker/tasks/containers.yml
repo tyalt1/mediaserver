@@ -5,7 +5,7 @@
     state: started
     privileged: true
     restart_policy: always
-    expose:
+    ports:
       - "9000:9000"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
@@ -15,7 +15,8 @@
     name: plex
     image: linuxserver/plex
     state: present
-    expose:
+    net: host
+    ports:
       - "32400:32400"
       - "32400:32400/udp"
       - "32469:32469"
@@ -33,7 +34,7 @@
     name: transmission
     image: linuxserver/transmission
     state: present
-    expose:
+    ports:
       - "9091:9091"
       - "51413:51413"
     volumes:
@@ -47,7 +48,7 @@
     name: sonarr
     image: linuxserver/sonarr
     state: present
-    expose:
+    ports:
       - "8989:8989"
     volumes:
       - "/dev/rtc:/dev/rtc:ro"
@@ -60,7 +61,7 @@
     name: couchpotato
     image: linuxserver/couchpotato
     state: present
-    expose:
+    ports:
       - "5050:5050"
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
@@ -74,7 +75,7 @@
     image: gitlab/gitlab-ce
     hostname: gitlab.tyalt1.com
     state: present
-    expose:
+    ports:
       - "22:22" #SSH
       - "80:80" #HTTP
       - "443:443" #HTTPS
@@ -90,7 +91,7 @@
     name: minecraft-vanilla
     image: kitematic/minecraft
     state: present
-    expose:
+    ports:
       - "25565:25565"
     volumes:
       - "{{ volume }}/minecraft-vanilla/:/data"
