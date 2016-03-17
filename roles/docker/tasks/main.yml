@@ -19,6 +19,7 @@
   file:
     dest: "{{ item }}"
     state: directory
+    mode: "0777"
   with_items:
     - "{{ volume }}"
     - "{{ movie }}"

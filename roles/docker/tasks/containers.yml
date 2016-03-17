@@ -50,6 +50,8 @@
     state: present
     ports:
       - "8989:8989"
+    links:
+      - "transmission:transmission"
     volumes:
       - "/dev/rtc:/dev/rtc:ro"
       - "{{ volume }}/sonarr/config:/config"
@@ -63,6 +65,8 @@
     state: present
     ports:
       - "5050:5050"
+    links:
+      - "transmission:transmission"
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "{{ volume }}/couchpotato/config:/config"
