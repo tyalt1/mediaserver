@@ -14,7 +14,7 @@
   docker:
     name: plex
     image: linuxserver/plex
-    state: present
+    state: "{{ media_start }}"
     net: host
     ports:
       - "32400:32400"
@@ -33,7 +33,7 @@
   docker:
     name: transmission
     image: linuxserver/transmission
-    state: present
+    state: "{{ media_start }}"
     ports:
       - "9091:9091"
       - "51413:51413"
@@ -47,7 +47,7 @@
   docker:
     name: sonarr
     image: linuxserver/sonarr
-    state: present
+    state: "{{ media_start }}"
     ports:
       - "8989:8989"
     links:
@@ -62,7 +62,7 @@
   docker:
     name: couchpotato
     image: linuxserver/couchpotato
-    state: present
+    state: "{{ media_start }}"
     ports:
       - "5050:5050"
     links:
@@ -71,7 +71,7 @@
       - "/etc/localtime:/etc/localtime:ro"
       - "{{ volume }}/couchpotato/config:/config"
       - "{{ movie }}:/movies"
-      - "{{ download}}:/downloads"
+      - "{{ download }}:/downloads"
 
 - name: make gitlab container
   docker:

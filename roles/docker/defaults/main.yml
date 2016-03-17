@@ -1,1 +1,4 @@
 mount_point: /massstorage
+
+#Make media containers as present or started.
+media_start: present

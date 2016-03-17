@@ -1,8 +1,7 @@
 ---
 - hosts: localhost
   become: yes
-  vars:
-    storage: /tmp/docker
   roles:
     - role: docker
-      mount_point: "{{ storage }}"
+      mount_point: /tmp/docker
+      media_start: started
