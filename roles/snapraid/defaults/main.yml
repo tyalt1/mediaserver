@@ -1,2 +1,2 @@
-snapraid_version: "10.0"
+# Common mount point for server data
 mount_point: /massstorage

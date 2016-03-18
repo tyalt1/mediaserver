@@ -1,3 +1,4 @@
+# Common mount point for server data
 mount_point: /massstorage
 
 #Make media containers as present or started.

@@ -9,7 +9,7 @@
 
 - name: create /mnt point for mount_point
   file:
-    dest: {{ mount_point }}
+    dest: "{{ mount_point }}"
     state: directory
     owner: nobody
     group: nogroup
