@@ -1,0 +1,16 @@
+- name: install samba
+  apt: name={{ item }} state=present
+  with_items:
+    - smbfs
+    - samba
+  notify:
+    - start samba
+
+- name: move samba config
+  template:
+    src: smb.conf.j2 #TODO make config template
+    dest: /etc/samba/smb.conf
+    owner: root
+    group: root
+  notify:
+    - restart samba
