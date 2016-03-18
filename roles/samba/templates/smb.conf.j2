@@ -1,0 +1,23 @@
+[global]
+netbios name = ALPHA
+workgroup = HOME
+security = user
+encrypt passwords = yes
+smb passwd file = /etc/samba/smbpasswd
+;interfaces = _
+
+[media]
+comment = Media mount
+path = {{ mount_point }}
+writeable = yes
+create mask = 0770
+force create mode = 0770
+locking = yes
+
+;[printers]
+;comment = _
+;path = /var/spool/samba
+;guest ok = Yes
+;printable = Yes
+;use client driver = Yes
+;browseable = No
