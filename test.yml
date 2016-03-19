@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  become: true
+  roles:
+    - role: mergerfs
+    - role: samba
+    - role: snapraid
+    - role: docker

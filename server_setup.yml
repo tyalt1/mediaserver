@@ -6,6 +6,8 @@
   roles:
     - role: mergerfs
       mount_point: "{{ storage }}"
+    - role: samba
+      mount_point: "{{ storage }}"
     - role: snapraid
       mount_point: "{{ storage }}"
     - role: docker

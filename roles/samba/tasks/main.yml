@@ -8,7 +8,7 @@
 
 - name: move samba config
   template:
-    src: smb.conf.j2 #TODO make config template
+    src: smb.conf.j2
     dest: /etc/samba/smb.conf
     owner: root
     group: root
