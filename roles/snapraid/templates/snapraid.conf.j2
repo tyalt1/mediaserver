@@ -1,0 +1,33 @@
+# Example configuration for snapraid
+
+# Defines the file to use as parity storage
+# Format: "parity FILE_PATH"
+parity /mnt/parity0/snapraid.parity
+
+# Defines the files to use as content list
+# Format: "content FILE_PATH"
+content /var/snapraid.content
+{% for i in range(num_of_disks) %}
+{% if i >= 0 %}
+content /mnt/disk{{ i }}/.snapraid.content
+{% endif %}
+{% endfor %}
+
+# Defines the data disks to use
+# Format: "disk DISK_NAME DISK_MOUNT_POINT"
+{% for i in range(num_of_disks) %}
+{% if i >= 0 %}
+disk disk{{ i }} /mnt/disk{{ i }}/
+{% endif %}
+{% endfor %}
+
+# Added pool
+pool {{ mount_point }}
+
+# Defines files and directories to exclude
+# Remember that all the paths are relative at the mount points
+# Format: "exclude FILE"
+# Format: "exclude DIR/"
+# Format: "exclude /PATH/FILE"
+# Format: "exclude /PATH/DIR/"
+#noexcluded

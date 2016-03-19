@@ -1,2 +1,10 @@
 # Common mount point for server data
 mount_point: /massstorage
+
+# Disks in array (does not count parity drive)
+num_of_disks: 0
+
+# Email and password for snapraid repots (assumes gmail)
+email_host: smtp.gmail.com
+email_address: do-not-reply@gmail.com
+email_password: supersecretpassword

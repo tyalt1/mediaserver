@@ -1,1 +1,5 @@
+# Fixed version of snapraid
 snapraid_version: "10.0"
+
+# Commands for cron jobs
+snapraid_cmd: "python /opt/snapraid-runner/snapraid-runner.py -c /etc/snapraid-runner.conf"
