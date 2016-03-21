@@ -22,10 +22,13 @@ All the roles install the program if it is not already installed.
 role     | description |
 ---------|-----------------------
 [mergerfs](https://github.com/trapexit/mergerfs) | JBOD (Just a Bunch Of Drives) union filesystem
+samba    | File server.
 [snapraid](https://github.com/amadvance/snapraid) | Backup for disk arrays using parity blocks.
 docker   | Container-based application platform.
 
 The mergerfs role mounts all the drives at a specific mount point.
+
+The samba role installs the configuration and starts the service.
 
 The snapraid role sets a service to do daily backups.
 
