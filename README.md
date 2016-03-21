@@ -17,24 +17,36 @@ Where `hosts` is an [Ansible Inventory file](http://docs.ansible.com/ansible/int
 
 ## Ansible Roles
 
-All the roles install the program if it is not already installed.
+All the roles install the program if it does not already installed.
 
-role     | description |
----------|-----------------------
-[mergerfs](https://github.com/trapexit/mergerfs) | JBOD (Just a Bunch Of Drives) union filesystem
-samba    | File server.
-[snapraid](https://github.com/amadvance/snapraid) | Backup for disk arrays using parity blocks.
-docker   | Container-based application platform.
+### MergerFS
+
+[MergerFS Github](https://github.com/trapexit/mergerfs)
+
+MergerFS is a FUSE-based JBOD (Just a Bunch Of Drives) union filesystem.
 
 The mergerfs role mounts all the drives at a specific mount point.
 
+### Samba
+
 The samba role installs the configuration and starts the service.
 
-The snapraid role sets a service to do daily backups.
+### SnapRAID
+
+[SnapRAID Github](https://github.com/amadvance/snapraid)  
+[SnapRAID Website](http://www.snapraid.it/)
+
+SnapRAID is a backup for disk arrays using parity blocks.
+
+The snapraid role installs the config files and sets a service to do daily backups.
+
+### Docker
+
+Docker is a container-based application platform.
 
 The docker role starts up the services inside containers.
 
-## Docker Containers
+#### Docker Containers
 
 All services are run inside docker containers.
 The containers are created in `roles/docker/tasks/containers.yml`.
