@@ -1,20 +1,41 @@
 [global]
-netbios name = ALPHA
+netbios name = Hydra
+server string = Hydra media server
 workgroup = HOME
+realm = HOME
 security = user
 encrypt passwords = yes
 smb passwd file = /etc/samba/smbpasswd
 ;interfaces = _
-
-[media]
-comment = Media mount
-path = {{ mount_point }}
+load printers = no
+log file = /var/log/samba/smbd.log
+max log size = 50
+create mask = 0774
+force create mode = 0774
+directory mask = 0774
+force directory mask = 0774
+local master = yes
+domain master = no
+os level = 5
+dns proxy = no
+admin users =
+null passwords = yes
+map to guest = bad user
+guest account = nobody
+force group = share
+browseable = yes
+socket options = TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=2048000 SO_SNDBUF=2048000
 writeable = yes
-create mask = 0770
-force create mode = 0770
 locking = yes
 
-;[printers]
+[media]
+comment = Media
+path = {{ mount_point }}
+public = yes
+guest ok = yes
+map read only = no
+
+[printers]
 ;comment = _
 ;path = /var/spool/samba
 ;guest ok = Yes
