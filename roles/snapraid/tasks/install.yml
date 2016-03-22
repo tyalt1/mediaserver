@@ -1,10 +1,3 @@
-- name: download dependencies
-  apt: name={{ item }} state=present update_cache=yes
-  with_items:
-    - gcc
-    - make
-    - checkinstall
-
 - name: download snapraid release
   get_url:
     dest: /tmp/snapraid.tar.gz

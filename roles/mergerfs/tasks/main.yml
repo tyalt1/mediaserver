@@ -5,7 +5,7 @@
   changed_when: false
   always_run: yes
 
-- name: apt-get for mergerfs script
+- name: mergerfs apt-get
   apt: name={{ item }} state=present update_cache=yes
   with_items:
     - git
@@ -16,7 +16,6 @@
     - debhelper
     - libfuse-dev
     - libattr1-dev
-  when: result | failed
 
 - name: run mergerfs install script
   script: get_mergerfs.sh

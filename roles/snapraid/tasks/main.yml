@@ -5,6 +5,14 @@
   changed_when: false
   always_run: yes
 
+- name: snapraid apt-get
+  apt: name={{ item }} state=present update_cache=yes
+  with_items:
+    - git
+    - gcc
+    - make
+    - checkinstall
+
 - include: install.yml
   when: result | failed
 
