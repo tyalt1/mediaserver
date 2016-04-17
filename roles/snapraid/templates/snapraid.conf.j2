@@ -3,6 +3,11 @@
 # Defines the file to use as parity storage
 # Format: "parity FILE_PATH"
 parity /mnt/parity0/snapraid.parity
+{% for i in range(num_of_parity_disks) %}
+{% if i >= 0 %}
+parity /mnt/parity{{ i }}/snapraid.parity
+{% endif %}
+{% endfor %}
 
 # Defines the files to use as content list
 # Format: "content FILE_PATH"

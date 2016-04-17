@@ -1,2 +1,6 @@
 # Common mount point for server data
 mount_point: /massstorage
+
+# List of Hard Drives
+# { name: /mnt/diskx, src: /dev/disk/by-id/... }
+disks: []
