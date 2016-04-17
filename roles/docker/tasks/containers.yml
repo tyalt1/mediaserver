@@ -43,6 +43,17 @@
       - "{{ volume }}/transmission/watch:/watch"
       - "{{ download }}:/downloads"
 
+- name: make nzbget container
+  docker:
+    name: nzbget
+    image: linuxserver/nzbget
+    state: "{{ media_start }}"
+    ports:
+      - "6789:6789"
+    volumes:
+      - "{{ volume }}/nzbget/config:/config"
+      - "{{ download }}:/downloads"
+
 - name: make sonarr container
   docker:
     name: sonarr
@@ -52,6 +63,7 @@
       - "8989:8989"
     links:
       - "transmission:transmission"
+      - "nzbget:nzbget"
     volumes:
       - "/dev/rtc:/dev/rtc:ro"
       - "{{ volume }}/sonarr/config:/config"
@@ -67,6 +79,7 @@
       - "5050:5050"
     links:
       - "transmission:transmission"
+      - "nzbget:nzbget"
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "{{ volume }}/couchpotato/config:/config"

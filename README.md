@@ -10,7 +10,7 @@ and run the playbook.
 
 ```
 sudo pip install ansible
-ansible-playbook -i hosts server_setup.yml
+ansible-playbook -i hosts -K server_setup.yml
 ```
 
 Where `hosts` is an [Ansible Inventory file](http://docs.ansible.com/ansible/intro_inventory.html).
