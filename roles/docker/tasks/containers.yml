@@ -25,7 +25,6 @@
       - "1900:1900/udp"
     volumes:
       - "{{ volume }}/plex/config:/config"
-      - "{{ volume }}/plex/transcode:/transcode"
       - "{{ movie }}:/data/movies"
       - "{{ tv }}:/data/tvshows"
 
