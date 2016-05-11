@@ -51,7 +51,7 @@ The docker role starts up the services inside containers.
 All services are run inside docker containers.
 The containers are created in `roles/docker/tasks/containers.yml`.
 
-1. [dockerui](https://hub.docker.com/r/dockerui/dockerui/)
+1. [dockerui](https://hub.docker.com/r/abh1nav/dockerui/)
 Web interface for managing docker containers.
 1. [plex](https://hub.docker.com/r/linuxserver/plex)
 Media streaming server.
