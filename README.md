@@ -13,7 +13,8 @@ sudo pip install ansible
 ansible-playbook -i hosts -K server_setup.yml
 ```
 
-Where `hosts` is an [Ansible Inventory file](http://docs.ansible.com/ansible/intro_inventory.html).
+Use `-i` to specify an [Ansible Inventory file](http://docs.ansible.com/ansible/intro_inventory.html).  
+The `-K` flag allows the script to run as root.
 
 ## Ansible Roles
 
