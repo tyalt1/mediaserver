@@ -57,6 +57,8 @@ Web interface for managing docker containers.
 Media streaming server.
 1. [transmission](https://hub.docker.com/r/linuxserver/transmission)
 Torrent download client.
+1. [nzbget](https://hub.docker.com/r/linuxserver/nzbget)
+Usenet download client.
 1. [sonarr](https://hub.docker.com/r/linuxserver/sonarr)
 TV show management.
 1. [couchpotato](https://hub.docker.com/r/linuxserver/couchpotato)
