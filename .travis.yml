@@ -10,10 +10,10 @@ install:
   - pip install ansible #Install Ansible
 
 script:
-  - "ansible-playbook -i hosts test.yml --syntax-check"
-  - "ansible-playbook -i hosts test.yml --connection=local"
+  - "ansible-playbook -i hosts --sudo test.yml --syntax-check"
+  - "ansible-playbook -i hosts --sudo test.yml --connection=local"
   - >
-    ansible-playbook -i hosts test.yml --connection=local
+    ansible-playbook -i hosts --sudo test.yml --connection=local
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
