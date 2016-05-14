@@ -6,7 +6,7 @@
   always_run: yes
 
 - name: run docker install script
-  script: docker.sh
+  shell: wget -qO- https://get.docker.com/ | sh
   when: result | failed
 
 - name: install docker-py
