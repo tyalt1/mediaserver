@@ -1,6 +1,6 @@
 - name: create /mnt points for drive
   file:
-    dest: /mnt/{{ item.name }}
+    dest: "{{ item.name }}"
     state: directory
     owner: nobody
     group: nogroup

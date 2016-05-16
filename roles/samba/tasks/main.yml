@@ -1,7 +1,7 @@
 - name: install samba
   apt: name={{ item }} state=present update_cache=yes
   with_items:
-    - smbfs
+    - cifs-utils
     - samba
   notify:
     - start samba

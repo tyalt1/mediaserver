@@ -30,7 +30,7 @@ The mergerfs role mounts all the drives at a specific mount point.
 
 ### Samba
 
-[Samba Website](https://www.samba.org/)
+[Samba Website](https://www.samba.org/)  
 [Samba Github](https://github.com/samba-team/samba)
 
 The samba role installs the configuration and starts the service.
