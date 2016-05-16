@@ -1,5 +1,5 @@
 - name: install samba
-  apt: name={{ item }} state=present
+  apt: name={{ item }} state=present update_cache=yes
   with_items:
     - smbfs
     - samba
