@@ -1,5 +1,5 @@
 # Common mount point for server data
-mount_point: /massstorage
+mount_point: /mnt/storage
 
 #Make media containers as present or started.
 media_start: present

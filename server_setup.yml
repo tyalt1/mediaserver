@@ -1,14 +1,19 @@
 ---
+# This is an example playbook, showing what defaults can be overloaded.
+# Does not overload drive pool: /mnt/storage
 - hosts: localhost
   become: true
   vars:
-    storage: /mnt/storage
+    disk_array: [] # { name: /mnt/diskx, src: /dev/disk/by-id/... }
   roles:
     - role: mergerfs
-      mount_point: "{{ storage }}"
+      disks: "{{ disk_array }}"
     - role: samba
-      mount_point: "{{ storage }}"
     - role: snapraid
-      mount_point: "{{ storage }}"
+      num_of_disks: 0
+      num_of_parity_disks: 0
+      email_host: smtp.gmail.com
+      email_address: do-not-reply@gmail.com
+      email_password: supersecretpassword
     - role: docker
-      mount_point: "{{ storage }}"
+      media_start: present

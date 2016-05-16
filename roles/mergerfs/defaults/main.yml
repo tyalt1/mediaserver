@@ -1,5 +1,5 @@
 # Common mount point for server data
-mount_point: /massstorage
+mount_point: /mnt/storage
 
 # List of Hard Drives
 # { name: /mnt/diskx, src: /dev/disk/by-id/... }

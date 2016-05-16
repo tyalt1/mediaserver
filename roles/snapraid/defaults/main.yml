@@ -1,5 +1,5 @@
 # Common mount point for server data
-mount_point: /massstorage
+mount_point: /mnt/storage
 
 # Disks in array (does not count parity drive)
 num_of_disks: 0

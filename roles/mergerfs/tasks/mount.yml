@@ -25,7 +25,7 @@
 
 - name: mount mergerfs array
   mount:
-    name: /mnt/storage
+    name: "{{ mount_point }}"
     src: /mnt/disk*
     opts: direct_io,defaults,allow_other,minfreespace=50G,fsname=mergerfs
     fstype: fuse.mergerfs
