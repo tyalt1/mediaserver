@@ -10,7 +10,8 @@
 
 - name: run docker install script
   shell: curl -sSL https://get.docker.com/ | sh
-  args: creates=/usr/bin/docker
+  args:
+    creates: /usr/bin/docker
   when: result | failed
 
 - name: install docker-py
