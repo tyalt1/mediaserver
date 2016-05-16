@@ -11,6 +11,7 @@
 
 - name: install docker-py
   pip: name=docker-py state=present
+  notify: restart docker
 
 - name: add volume directories
   file:

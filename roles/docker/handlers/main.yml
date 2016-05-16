@@ -1,0 +1,5 @@
+- name: start docker
+  service: name=docker state=started
+
+- name: restart samba
+  service: name=docker state=restarted
