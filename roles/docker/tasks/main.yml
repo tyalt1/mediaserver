@@ -5,12 +5,16 @@
   changed_when: false
   always_run: yes
 
+- name: install curl
+  apt: name=curl state=present update_cache=yes
+
 - name: run docker install script
-  shell: wget -qO- https://get.docker.com/ | sh
+  shell: curl -sSL https://get.docker.com/ | sh
+  args: creates=/usr/bin/docker
   when: result | failed
 
 - name: install docker-py
-  pip: name=docker-py state=present
+  pip: name=docker-py state=latest
   notify: restart docker
 
 - name: add volume directories
