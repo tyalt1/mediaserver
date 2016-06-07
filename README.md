@@ -22,7 +22,7 @@ All the roles install the program if it does not already installed.
 
 ### MergerFS
 
-[MergerFS Github](https://github.com/trapexit/mergerfs)
+[Github](https://github.com/trapexit/mergerfs)
 
 MergerFS is a FUSE-based JBOD (Just a Bunch Of Drives) union filesystem.
 
@@ -30,21 +30,24 @@ The mergerfs role mounts all the drives at a specific mount point.
 
 ### Samba
 
-[Samba Website](https://www.samba.org/)  
-[Samba Github](https://github.com/samba-team/samba)
+[Website](https://www.samba.org/) |
+[Github](https://github.com/samba-team/samba)
 
 The samba role installs the configuration and starts the service.
 
 ### SnapRAID
 
-[SnapRAID Github](https://github.com/amadvance/snapraid)  
-[SnapRAID Website](http://www.snapraid.it/)
+[Website](http://www.snapraid.it/) |
+[Github](https://github.com/amadvance/snapraid)
 
 SnapRAID is a backup for disk arrays using parity blocks.
 
 The snapraid role installs the config files and sets a service to do daily backups.
 
 ### Docker
+
+[Website](https://www.docker.com/) | 
+[Github](https://github.com/docker/docker)
 
 Docker is a container-based application platform.
 
