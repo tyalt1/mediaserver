@@ -18,7 +18,7 @@ The `-K` flag allows the script to run as root.
 
 ## Ansible Roles
 
-All the roles install the program if it does not already installed.
+All the roles install the program if already installed, then configures it.
 
 ### MergerFS
 
@@ -33,7 +33,7 @@ The mergerfs role mounts all the drives at a specific mount point.
 [Website](https://www.samba.org/) |
 [Github](https://github.com/samba-team/samba)
 
-The samba role installs the configuration and starts the service.
+The samba role installs the configuration file and starts the service.
 
 ### SnapRAID
 
@@ -42,7 +42,7 @@ The samba role installs the configuration and starts the service.
 
 SnapRAID is a backup for disk arrays using parity blocks.
 
-The snapraid role installs the config files and sets a service to do daily backups.
+The snapraid role installs the configuration files and sets a cron job to do daily backups.
 
 ### Docker
 
@@ -55,11 +55,11 @@ The docker role starts up the services inside containers.
 
 #### Docker Containers
 
-All services are run inside docker containers.
+All services run inside docker containers.
 The containers are created in `roles/docker/tasks/containers.yml`.
 
 1. [dockerui](https://hub.docker.com/r/abh1nav/dockerui/)
-Web interface for managing docker containers.
+Web interface for managing docker containers running on the machine.
 1. [plex](https://hub.docker.com/r/linuxserver/plex)
 Media streaming server.
 1. [transmission](https://hub.docker.com/r/linuxserver/transmission)
