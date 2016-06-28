@@ -7,7 +7,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - pip install ansible #Install Ansible
+  - sudo apt-get install -y ansible #Install Ansible
 
 script:
   - "ansible-playbook -i hosts --sudo test.yml --syntax-check"
