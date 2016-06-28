@@ -2,13 +2,14 @@
   docker:
     name: dockerui
     image: abh1nav/dockerui
+    command: "-e='/var/run/docker.sock'"
     state: started
     privileged: true
     restart_policy: always
     ports:
       - "9000:9000"
     volumes:
-      - "/var/run/docker.sock:/docker.sock:ro"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
 - name: make plex container
   docker:
