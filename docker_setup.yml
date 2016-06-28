@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-  become: yes
+  become: true
   roles:
     - role: docker
       mount_point: /tmp/docker
