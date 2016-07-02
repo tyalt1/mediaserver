@@ -5,11 +5,11 @@
   changed_when: false
   always_run: yes
 
-- name: install wget
-  apt: name=wget state=present update_cache=yes
+- name: install curl
+  apt: name=curl state=present update_cache=yes
 
 - name: run docker install script
-  shell: "wget -qO- https://get.docker.com/ | sh"
+  shell: "curl -sSL https://get.docker.com/ | sh"
   args:
     creates: /usr/bin/docker
   when: result | failed
