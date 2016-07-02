@@ -9,7 +9,7 @@
   apt: name=wget state=present update_cache=yes
 
 - name: run docker install script
-  shell: wget -qO- https://get.docker.com/ | sh
+  shell: "wget -qO- https://get.docker.com/ | sh"
   args:
     creates: /usr/bin/docker
   when: result | failed
